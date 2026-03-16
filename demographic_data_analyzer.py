@@ -24,10 +24,10 @@ def calculate_demographic_data(print_data=True):
     total_people = len(df)
     percentage_bachelors = round((df['education'] == 'Bachelors').sum() / len(df) * 100, 1)
     # 4. porcentaje de personas con educación avanzada que ganan >50K
-    # Educacón
+    # Educación
     advanced_education = ['Bachelors', 'Masters', 'Doctorate']
 
-    #edución avanzada
+    #educación avanzada
     higher_education = df[df['education'].isin(advanced_education)]
     
     #educación avanzada y mayor riqueza
@@ -35,6 +35,25 @@ def calculate_demographic_data(print_data=True):
     
     #educación vanzada y el porcentaje de riqueza redondeado
     higher_education_rich_percent = round(len(higher_education_rich) / len(higher_education) * 100, 1)
+
+    #5.Porcentaje de personas sin educación pero que ganan >50K
+    # educacón
+    
+    advanced_education = ['Bachelors', 'Masters', 'Doctorate']
+
+    # personas sin educación
+    lower_education = df[~df['education'].isin(advanced_education)]
+    
+    # de este grupo de personas las que ganan más 50K
+    lower_education_rich = lower_education[lower_education['salary'] == '>50K']
+    
+    # y definimos que porcentaje representan redondeado a 1
+    lower_education_rich_percent = round(len(lower_education_rich) / len(lower_education) * 100, 1)
+    
+    #6.Número mínimo de horas que trabaja una persona por semana
+    min_work_hours = df['hours-per-week'].min()
+       
+
          
     
     if print_data:
@@ -46,12 +65,20 @@ def calculate_demographic_data(print_data=True):
         print('Total personas con grado avanzado:', len(higher_education))
         print('De ellos los de mayor 50K:',len(higher_education_rich))
         print('Porcentaje que representan:',higher_education_rich_percent, '%') 
+        print('Total de personas sin grado avanzado:', len(lower_education))
+        print('De ellos los que ganan mas de 50K', len(lower_education_rich))
+        print('Porcentaje que representa',lower_education_rich_percent, '%')
+        print('Mínimo de horas trabajas por semana:', min_work_hours)
+
 
     return {
         'race_count': race_count,
         'average_age_men': average_age_men,
         'percentage_bachelors' : percentage_bachelors,
-        'higher_education_rich_percent' : higher_education_rich_percent 
+        'higher_education_rich_percent' : higher_education_rich_percent,
+        'lower_education_rich_percent' : lower_education_rich_percent,
+        'min_work_hours': min_work_hours
+        
     }
     
 if __name__ == "__main__":
