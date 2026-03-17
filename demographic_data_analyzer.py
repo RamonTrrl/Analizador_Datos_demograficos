@@ -20,38 +20,53 @@ def calculate_demographic_data(print_data=True):
     
     # 2. Edad media de los hombres
     average_age_men = round(df[df['sex'] == 'Male']['age'].mean(), 1)
+
     # 3. porcentaje con licenciatura
     total_people = len(df)
     percentage_bachelors = round((df['education'] == 'Bachelors').sum() / len(df) * 100, 1)
+
     # 4. porcentaje de personas con educación avanzada que ganan >50K
-    # Educación
+     #-Educación
     advanced_education = ['Bachelors', 'Masters', 'Doctorate']
 
-    #educación avanzada
+     #-educación avanzada
     higher_education = df[df['education'].isin(advanced_education)]
     
-    #educación avanzada y mayor riqueza
+     #-educación avanzada y mayor riqueza
     higher_education_rich = higher_education[higher_education['salary'] == '>50K']
     
-    #educación vanzada y el porcentaje de riqueza redondeado
+     #-educación vanzada y el porcentaje de riqueza redondeado
     higher_education_rich_percent = round(len(higher_education_rich) / len(higher_education) * 100, 1)
 
     #5.Porcentaje de personas sin educación pero que ganan >50K
-    # educacón
+     #-educacón
     
     advanced_education = ['Bachelors', 'Masters', 'Doctorate']
 
-    # personas sin educación
+     #-personas sin educación
     lower_education = df[~df['education'].isin(advanced_education)]
     
-    # de este grupo de personas las que ganan más 50K
+     #-de este grupo de personas las que ganan más 50K
     lower_education_rich = lower_education[lower_education['salary'] == '>50K']
     
-    # y definimos que porcentaje representan redondeado a 1
+     #-y definimos que porcentaje representan redondeado a 1
     lower_education_rich_percent = round(len(lower_education_rich) / len(lower_education) * 100, 1)
     
     #6.Número mínimo de horas que trabaja una persona por semana
-    min_work_hours = df['hours-per-week'].min()
+    min_workers_hours = df['hours-per-week'].min()
+
+    #7.Porcentaje de las personas que trabajan el mínimo de horas semanales y tienen un salario superior a 50 mil
+     #-personas que trabajan el minimo de horas
+    min_workers = df[df['hours-per-week'] == min_workers_hours]
+
+     #-de ellas las que ganan + 50K
+    min_workers_rich = min_workers[min_workers['salary'] == '>50K']
+    
+     #-que porcentaje representan
+    min_workers_rich_percent = round(len(min_workers_rich) / len(min_workers) * 100, 1)
+    
+     
+
        
 
          
@@ -68,7 +83,10 @@ def calculate_demographic_data(print_data=True):
         print('Total de personas sin grado avanzado:', len(lower_education))
         print('De ellos los que ganan mas de 50K', len(lower_education_rich))
         print('Porcentaje que representa',lower_education_rich_percent, '%')
-        print('Mínimo de horas trabajas por semana:', min_work_hours)
+        print('Mínimo de horas trabajas por semana:', min_workers_hours),
+        print('El porcentaje que representa:', min_workers_rich_percent, '%')
+        
+
 
 
     return {
@@ -77,8 +95,8 @@ def calculate_demographic_data(print_data=True):
         'percentage_bachelors' : percentage_bachelors,
         'higher_education_rich_percent' : higher_education_rich_percent,
         'lower_education_rich_percent' : lower_education_rich_percent,
-        'min_work_hours': min_work_hours
-        
+        'min_work_hours': min_workers_hours,
+        'min_workers_rich_percent' : min_workers_rich_percent
     }
     
 if __name__ == "__main__":
