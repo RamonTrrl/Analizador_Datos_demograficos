@@ -64,29 +64,56 @@ def calculate_demographic_data(print_data=True):
     
      #-que porcentaje representan
     min_workers_rich_percent = round(len(min_workers_rich) / len(min_workers) * 100, 1)
+
+    #8. País que tiene el mayor porcentaje de personas que ganan >50 000 dólares y su valor
+     #-ubicarlas primero por salario '>50K'
+    ricos = df[df['salary'] == '>50K']
+
+     #-de este grupo seleccionar un subgrupo de que país se trata
+    ricos_por_pais = ricos['native-country'].value_counts()
+
+     #-hacer un conteo total de personas ricas y no
+    personas_por_pais = df['native-country'].value_counts()
+
+     #-se busca en el df el total de persona, para luego hallar el %
     
-     
 
-       
+     #-hallamos el porcentaje final    
+    porcentaje_personas_pais = (df[df['salary'] == '>50K']['native-country'].value_counts() / df['native-country'].value_counts() * 100).dropna()
 
-         
+     #hallamos el pais con maximo valor
+    highest_earning_country = porcentaje_personas_pais.idxmax()
+
+     #redondeamos
+    highest_earning_country_percentage = round(porcentaje_personas_pais.max(), 1)
+
+    #9.Ocupación más popular para quienes ganan >50 000 en la India
+    india_ricos = df[(df['salary'] == '>50K') & (df['native-country'] == 'India')]
+    top_IN_occupation = india_ricos['occupation'].value_counts().idxmax()
+
+    
+
+             
     
     if print_data:
         print('Número de personas por raza:')
         print(race_count)
         print('Edad media de los hombres:', average_age_men)   
-        print('porcentaje con licenciatura:', percentage_bachelors, '%' 
-        ) 
+        print('porcentaje con licenciatura:', percentage_bachelors, '%')
+    
         print('Total personas con grado avanzado:', len(higher_education))
         print('De ellos los de mayor 50K:',len(higher_education_rich))
         print('Porcentaje que representan:',higher_education_rich_percent, '%') 
         print('Total de personas sin grado avanzado:', len(lower_education))
-        print('De ellos los que ganan mas de 50K', len(lower_education_rich))
+        print('De ellos los que ganan mas de 50K:', len(lower_education_rich))
         print('Porcentaje que representa',lower_education_rich_percent, '%')
-        print('Mínimo de horas trabajas por semana:', min_workers_hours),
-        print('El porcentaje que representa:', min_workers_rich_percent, '%')
+        print('Mínimo de horas trabajas por semana:', min_workers_hours)
+        print('El porcentaje que representa:', min_workers_rich_percent, '%')        
+        print('País con mayor porcentaje de ricos:', highest_earning_country)
+        print('Porcentaje de ricos en ese país:', highest_earning_country_percentage, '%')
+        print('Ocupacion mas popular en india-rica:',top_IN_occupation)
         
-
+        
 
 
     return {
@@ -96,7 +123,11 @@ def calculate_demographic_data(print_data=True):
         'higher_education_rich_percent' : higher_education_rich_percent,
         'lower_education_rich_percent' : lower_education_rich_percent,
         'min_work_hours': min_workers_hours,
-        'min_workers_rich_percent' : min_workers_rich_percent
+        'rich_percentage' : min_workers_rich_percent,
+        'highest_earning_country' : highest_earning_country,
+        'highest_earning_country_percentage' : highest_earning_country_percentage,
+        'top_IN_occupation' :  top_IN_occupation
+
     }
     
 if __name__ == "__main__":
