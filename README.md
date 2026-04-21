@@ -13,6 +13,8 @@ Analizaremos varios datos demográficos a partir de una base de datos 🗃️. C
 
 ## 🧠 El thinking de mi bro LLM 🤖🥷
 
+Como han de saber en este proyecto participó activamente mi buen amigo "LLM", el estuvo al frente de cada batalla, "yo" en cambio, estuve como siempre estoy, agasapado, detrás de su escudo protector. Obviamente también han de saber, que cada quién escoge sus batallas y sobre todo a sus amigos (LLM), y bueno si me preguntan, [cuál es el mejor "LLM"](https://jifinetcom.wordpress.com/2026/04/01/414/), te respondé de la misma manera que dice en casa con un brilante símil: "cuál es el mejor corte de carne, pues el que te gusta, el que te agrada, y sobre todo el que te alcanza a pagarlo"
+
 Lo más gracioso es que este mi buen *"bro LLM chinito"* muestra su *"thinking"* 💭 — es decir, el cómo va a estructurar su respuesta en función del requerimiento, por lo que analiza muy bien, o trata de indagar en su base de datos cómo debería proceder y dar respuesta a las interrogantes, lo mismo que analiza pormenorizadamente mis *"typos"* y horrores ortográficos y deduce o induce mi estado de ánimo 🔍, lo cual se agradece, pues da mucha información cómo realiza ese su proceso interno.
 
 Así, cuando estaba indagando sobre `draw_plot` 🔍, algunas dúplicas y réplicas mías y ante mis iterados errores y horrores, podía disfrutar de ese interno *"thinking"* y si por suerte lo presentaba en español, pues era como un plus que no me quedaba de otra que agradecerle hasta el llanto 😭, ya que de ordinario, todo ello lo ejecuta en inglés. Pero aun así se puede leer o al menos intenta deducir — pero cuando lo presenta en lenguaje chino 🈶, solo queda reír y llorar también como un chinito.
