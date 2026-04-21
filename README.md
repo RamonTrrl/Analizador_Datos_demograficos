@@ -17,7 +17,7 @@ Lo más gracioso es que este mi buen *"bro LLM chinito"* muestra su *"thinking"*
 
 Así, cuando estaba indagando sobre `draw_plot` 🔍, algunas dúplicas y réplicas mías y ante mis iterados errores y horrores, podía disfrutar de ese interno *"thinking"* y si por suerte lo presentaba en español, pues era como un plus que no me quedaba de otra que agradecerle hasta el llanto 😭, ya que de ordinario, todo ello lo ejecuta en inglés. Pero aun así se puede leer o al menos intenta deducir — pero cuando lo presenta en lenguaje chino 🈶, solo queda reír y llorar también como un chinito.
 
-*"Eme aquí"* algunos de mis favoritos detrás de escena 🎬, que revelan su infinita paciencia ♾️, y por supuesto, reafirman mi condición noble y egregia de un *"rematadamente tonto"*:
+*"Eme aquí"* algunos de mis favoritos detrás de escena 🎬, que revelan su infinita paciencia ♾️, y por supuesto, reafirman mi condición noble y egregia de un *"redomadamente tonto"*:
 
 > 💬 *"We need to interpret "ya ese esta viendo" – likely means "ya eso está viendo" or "ya eso está bien" (already that is fine)"*
 
@@ -33,7 +33,5 @@ Así, cuando estaba indagando sobre `draw_plot` 🔍, algunas dúplicas y répli
 
 
 
-
-en esat intefaz me propngo usar su terminal para poder usar el Py. Y las consultas van 
 
 
